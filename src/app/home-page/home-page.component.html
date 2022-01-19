@@ -1,0 +1,82 @@
+<!-- navigation -->
+
+<section id="nav-bar">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#"><img src="../../assets/images/yy.png" /></a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#view">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="fav()">Fav</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" (click)="map()">Map</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" (click)="cart()">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="flight()">Flight</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="sett()">Setting</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</section>
+
+
+<!-- about -->
+<section id="about">
+  <div class="container">
+    <div class="row-about">
+      <div class="col-md-13">
+        <!-- <h1 style="margin-top: 20px;">All Items</h1> -->
+        <h2>
+          Product Details
+        </h2>
+        <div class="about-content">
+          <input
+        type="text"
+        placeholder="Search a Product"
+        class="form-control bg-dark text-light border-0 my-4 text-center"
+        autofocus
+        (keyup)="searchProd()"
+        [(ngModel)]="searchText"
+
+       />
+          
+         
+          <div class="card" *ngFor="let products of product">
+            <div class="content">
+            <img src="{{products.image}}"  alt="" style="width: 150px;height: 150px;margin-top: 14px;margin-left: 25%;">
+            <h4 style="margin-left: 8%;">
+              {{products.name}}
+            </h4>
+            <h5 style="margin-left: 8%;">
+             {{products.price}}
+            </h5 >
+          
+            <p style="margin-left: 8%;">{{products.description}}</p>
+            <i class="bi bi-heart"></i>
+            <button (click)="addToCart(products)" style="height: 50px;width: 50%;background-color: burlywood;border-color: burlywood;margin-left: 25%;"> Add To Cart</button>
+            <!-- <button (click)="addFav(products)" style="height: 50px;width: 50%;background-color: burlywood;border-color: burlywood;margin-left: 25%;"> Favorite</button> -->
+         <br><br>
+         </div>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
